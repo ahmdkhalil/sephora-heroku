@@ -5,7 +5,7 @@ import streamlit as st
 
 # Load Our Dataset
 st.title('Product Recommendation App 1')
-df = pd.read_csv("./dataset/skindataall.csv")
+df = pd.read_csv("skindataall.csv")
 
 st.sidebar.header('User Input Parameters')
 
