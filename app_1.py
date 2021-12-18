@@ -7,6 +7,9 @@ import streamlit as st
 st.title('Product Recommendation App 1')
 df = pd.read_csv("skindataall.csv")
 
+# Cache for a day
+@st.cache(ttl=3600*24, show_spinner=False)
+
 st.sidebar.header('User Input Parameters')
 
 skin_tone = st.sidebar.selectbox('Skin Tone',
