@@ -7,8 +7,7 @@ import streamlit as st
 st.title('Product Recommendation App 1')
 df = pd.read_csv("skindataall.csv")
 
-# Cache for a day
-@st.cache(ttl=3600*24, show_spinner=False)
+
 
 st.sidebar.header('User Input Parameters')
 
@@ -28,6 +27,9 @@ data = {'Skin Tone': skin_tone,
 df_user = pd.DataFrame(data, index=[0])
 st.subheader("User Input Parameters")
 st.write(df_user)
+
+# Cache for a day
+@st.cache(ttl=3600*24, show_spinner=False)
 
 def recommend_products_by_user_features(skintone, skintype, eyecolor, haircolor, percentile=0.85):
     ddf = df[(df['Skin_Tone'] == skintone) & (df['Hair_Color'] == haircolor) & (df['Skin_Type'] == skintype) & (df['Eye_Color'] == eyecolor)]
