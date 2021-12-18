@@ -28,8 +28,6 @@ df_user = pd.DataFrame(data, index=[0])
 st.subheader("User Input Parameters")
 st.write(df_user)
 
-# Cache for a day
-@st.cache(ttl=3600*24, show_spinner=False)
 
 def recommend_products_by_user_features(skintone, skintype, eyecolor, haircolor, percentile=0.85):
     ddf = df[(df['Skin_Tone'] == skintone) & (df['Hair_Color'] == haircolor) & (df['Skin_Type'] == skintype) & (df['Eye_Color'] == eyecolor)]
@@ -49,5 +47,4 @@ rec_prod = recommend_products_by_user_features(
 skin_tone, skin_type,
 eye_color, hair_color)
 
-@st.cache(suppress_st_warning=True)
 st.write(rec_prod[['Rating_Stars', 'Product', 'Product_Url', 'Price']])
