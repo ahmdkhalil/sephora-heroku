@@ -49,5 +49,5 @@ rec_prod = recommend_products_by_user_features(
 skin_tone, skin_type,
 eye_color, hair_color)
 
- @st.cache(suppress_st_warning=True)
+@st.cache(suppress_st_warning=True)
 st.write(rec_prod[['Rating_Stars', 'Product', 'Product_Url', 'Price']])
